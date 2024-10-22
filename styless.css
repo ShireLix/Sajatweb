@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-container {
+    display: flex; /* Flexbox beállítása a kép és a szöveg elhelyezéséhez */
+    align-items: center; /* Középre igazítás függőlegesen */
+    margin: 20px 0; /* Térköz a szekcióban */
+}
+
+.profile-icon {
+    width: 150px; /* Állítsd be a kívánt méretet */
+    height: 150px; /* Állítsd be a kívánt méretet */
+    border-radius: 50%; /* Kör alakú */
+    object-fit: cover; /* A kép megfelelően illeszkedjen */
+    margin: 20px 0; /* Margó a kép körül */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Árnyék a kép körül */
+}
+
+
+.background-video {
+    position: fixed; /* Rögzített pozicionálás */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* A videó megfelelő arányú kitöltése */
+    z-index: -1; /* Videó a háttérben */
+    opacity: 0.7; /* Átlátszóság beállítása */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00bfff;
+    font-weight: bold;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #ffcc00;
+    transition: width 0.4s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.section {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: rgba(51, 51, 51, 0.8); /* Sötétebb háttér 80%-os átlátszósággal */
+    border-radius: 8px;
+    background-image: url('texture.png'); /* Helyettesítsd a saját textúra képed URL-jével */
+    background-size: cover; /* A háttérkép kitölti a szekciót */
+    background: linear-gradient(135deg, rgba(51, 51, 51, 0.8), rgba(0, 0, 0, 0.5));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+    margin: 40px 0; /* Növeljük a margókat */
+}
+
+.section::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #1e90ff; /* Díszítő sáv */
+    margin-bottom: 20px;
+}
+
+.about-container {
+    display: flex; /* Flexbox beállítás */
+    align-items: center; /* Vertikális középre igazítás */
+    animation: fadeIn 1s ease-in-out; /* Animáció a szekció megjelenítésére */
+    padding: 20px; /* Párnázás a konténer körül */
+    background-color: rgba(255, 255, 255, 0.1); /* Átlátszó háttér a konténernek */
+    border-radius: 8px; /* Lekerekített sarkok */
+    transition: background-color 0.5s; /* Animáció a háttérszínre */
+}
+
+.about-container:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Kicsit világosabb háttér hover esetén */
+}
+
+
+.icon {
+    border-radius: 50%; /* Kör alakú kép */
+    width: 140px; /* Kép szélessége */
+    height: 120px; /* Kép magassága */
+    margin-right: 20px; /* Térköz a kép és a szöveg között */
+    transition: transform 0.3s; /* Animáció a hover hatásra */
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Növeli a képet hover esetén */
+}
+
+.about-text p {
+    background-color: rgba(255, 255, 255, 0.1); /* Átlátszó háttér */
+    padding: 15px; /* Párnázás a szöveg körül */
+    border-radius: 8px; /* Lekerekített sarkok */
+    animation: pulse 3s infinite; /* Folyamatos pulzálás */
+    transition: background-color 0.3s; /* Animáció a hover hatásra */
+}
+
+
+.about-text p:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Kicsit világosabb háttér hover esetén */
+}
+
+.profile-icon {
+    width: 150px; /* Állítsd be a kívánt méretet */
+    height: 150px; /* Állítsd be a kívánt méretet */
+    border-radius: 50%; /* Kör alakú */
+    object-fit: cover; /* A kép megfelelően illeszkedjen */
+    margin-right: 20px; /* Margó a kép és a szöveg között */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Árnyék a kép körül */
+}
+
+.skill-container {
+    margin: 20px 0; /* Margó a konténer körül */
+}
+
+.skill {
+    margin-bottom: 15px; /* Margó a skálák között */
+}
+
+.skill-bar {
+    background-color: #444; /* Háttér a skálához */
+    border-radius: 5px; /* Lekerekített sarkok */
+    overflow: hidden; /* A kitöltött rész nem lépheti át a keretet */
+}
+
+.skill-fill {
+    background-color: #00bfff; /* Kitöltött rész színe */
+    height: 20px; /* A kitöltött rész magassága */
+    transition: width 0.5s; /* Átmeneti hatás a szélességre */
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+h2{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+}
+
+.resume-container {
+    text-align: center; /* Középre igazítás */
+    margin: 20px 0; /* Térköz a szekció körül */
+}
+
+.resume-img {
+    max-width: 40%; /* Csökkentett maximális szélesség */
+    height: auto; /* Magasság automatikus */
+    border-radius: 10px; /* Lekerekített sarkok */
+    cursor: pointer; /* Kézkurzor a kattinthatóságért */
+    transition: transform 0.5s; /* Animáció kattintáskor */
+}
+
+.resume-img:hover {
+    transform: scale(1.02); /* Kicsit megnövekszik hover hatásra */
+}
+
+.card {
+    background-color: #444;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none; /* Link szöveg aláhúzásának eltüntetése */
+    color: inherit; /* Szöveg színének öröklése */
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Lekerekített sarkok a képeknél */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Sötétebb háttér */
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Kezdetben átlátszó */
+    transition: opacity 0.5s ease; /* Átlátszóság animáció */
+}
+.popup.show {
+    display: flex; /* Flexbox beállítás, amikor megjelenik */
+    opacity: 1; /* Teljesen látható */
+}
+.popup-content {
+    background-color: #333; /* Sötétebb szín */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    width: 80%; /* Csökkentett szélesség */
+    max-width: 400px; /* Maximális szélesség */
+    transform: translateY(-50px); /* Elmozdulás felfelé */
+    transition: transform 0.5s ease; /* Elmozdulás animáció */
+    height: auto; /* Automatikus magasság */
+}
+.popup.show .popup-content {
+    transform: translateY(0); /* Visszaáll a normál helyzetébe */
+}
+
+.popup-img {
+    max-width: 66%; /* Kép maximális szélessége */
+    border-radius: 15px;
+    margin-bottom: 25px; /* Kép és szöveg közötti távolság */
+}
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: red; /* Piros szín */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.link-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link-list li {
+    margin: 10px 0;
+}
+
+.link-list a {
+    text-decoration: none;
+    background-color: #1e90ff; /* Szebb kék árnyalat */
+    color: #fff; /* Fehér szöveg */
+    padding: 10px 20px; /* Párnázás */
+    border-radius: 25px; /* Lekerekített sarkok */
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.link-list a:hover {
+    background-color: #007bbf; /* Sötétebb háttér hover hatásra */
+    transform: translateY(-3px); /* Emelkedés hover hatásra */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Árnyék hover hatásra */
+}
+
+.contact {
+    animation: fadeIn 0.5s forwards; /* Animáció a kapcsolatfelvétel szekcióra */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Középre igazítás */
+}
+
+.contact-form input, .contact-form textarea {
+    width: 90%; /* Szélesség 90%-ra állítva */
+    padding: 10px; /* Párnázás */
+    margin: 10px 0; /* Fülek közötti távolság */
+    border-radius: 8px; /* Lekerekített sarkok */
+    border: 1px solid #ccc; /* Határ */
+    transition: border 0.3s; /* Határ színének animálása */
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #1e90ff; /* Kék határ fókuszáláskor */
+}
+
+.contact-link {
+    background-color: #1e90ff; /* Kék háttér */
+    color: #fff; /* Fehér szöveg */
+    padding: 10px 20px; /* Párnázás */
+    border-radius: 25px; /* Lekerekített sarkok */
+    border: none; /* Határ eltávolítása */
+    cursor: pointer; /* Mutató kéz */
+    transition: background-color 0.3s; /* Háttér színének animálása */
+}
+
+.contact-link:hover {
+    background-color: #007bbf; /* Sötétebb háttér hover hatásra */
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #1e90ff; /* Szebb kék árnyalat */
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px 0;
+}

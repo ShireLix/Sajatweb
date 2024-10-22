@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bemutatkozó Weboldal</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+
+    <video autoplay muted loop class="background-video">
+        <source src="dark-galaxy.1920x1080.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <div class="container">
+        <header>
+            <h1>Üdvözlöm a weboldalamon!</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Rólam</a></li>
+                    <li><a href="#resume">Önéletrajz</a></li>
+                    <li><a href="#works">Munkáim</a></li>
+                    <li><a href="#links">Linkek</a></li>
+                    <li><a href="#contact">Kapcsolat</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="about" class="section">
+            <h2>Rólam</h2>
+            <div class="about-container">
+                <img src="proflie.JPEG" alt="Inspiráló Ikon" class="icon">
+                <div class="about-text">
+                    <p>Itt található néhány információ rólam. Érdeklődöm a technológia és a kreativitás iránt. Szeretem a kihívásokat és az új ismeretek megszerzését.</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="resume" class="section">
+            <h2>Önéletrajz</h2>
+            <div class="resume-container">
+                <img id="resume-img" class="resume-img" src="önélet.png" alt="Önéletrajz" onclick="openImage(this)">
+                <br/>
+                <p>Ez itt a rövid leírás az önéletrajzomról. Kattints a képre a nagyításhoz.</p>
+            </div>
+        </section>
+
+        <section id="works" class="section">
+            <h2>Munkáim</h2>
+            <div class="card-container">
+                <a href="https://shirelix.github.io/Quiz4You2.0/" class="card"> <!-- Link a kártyához -->
+                    <img src="1.png" alt="Quiz4You" class="card-img">
+                    <h3>- Quiz Játék -</h3>
+                    <p>Egy Projekt amelyet Tóth Reginával készítettem közösen, a fogadtatás pozitív volt.</p>
+                </a>
+                <a href="munka2.html" class="card"> <!-- Link a kártyához -->
+                    <img src="work2.jpg" alt="Munka 2" class="card-img">
+                    <h3>Munka 2</h3>
+                    <p>Rövid leírás a munkáról. Az ügyfél elégedett volt az eredménnyel.</p>
+                </a>
+                <a href="munka3.html" class="card"> <!-- Link a kártyához -->
+                    <img src="work3.jpg" alt="Munka 3" class="card-img">
+                    <h3>Munka 3</h3>
+                    <p>Rövid leírás a munkáról. Innovatív megoldásokkal járultam hozzá a sikerhez.</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="links" class="section">
+            <h2>Linkek</h2>
+            <ul class="link-list">
+                <li><a href="https://link1.com">Saját oldal 1</a></li>
+                <li><a href="https://link2.com">Saját oldal 2</a></li>
+            </ul>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Programozási Nyelvek</h2>
+            <div class="skill-container">
+                <div class="skill">
+                    <h3>HTML</h3>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 94%;"></div> <!-- A szint százalékos aránya -->
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>CSS</h3>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>JavaScript</h3>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>Python</h3>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>C#</h3>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 30%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <h2>Kapcsolatfelvétel</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Név" required>
+                <input type="email" placeholder="E-mail" required>
+                <textarea placeholder="Üzenet" required></textarea>
+                <button type="submit" class="contact-link">Küldés</button>
+            </form>
+        </section>
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <img src="envolnek.jpg" alt="Kép" class="popup-img">
+                <p>Sarka Levente Weboldala.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 Sarka Levente</p>
+            <ul class="footer-links">
+                <li><a href="#about">Rólam</a></li>
+                <li><a href="#works">Munkáim</a></li>
+                <li><a href="#contact">Kapcsolat</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <script>
+        function openImage(img) {
+            const newImg = document.createElement('img');
+            newImg.src = img.src;
+            newImg.style.width = '100%';
+            newImg.style.height = 'auto';
+            const overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            overlay.appendChild(newImg);
+            overlay.onclick = () => document.body.removeChild(overlay);
+            document.body.appendChild(overlay);
+        }
+
+        function openPopup() {
+    const popup = document.getElementById("popup");
+    popup.classList.add("show"); // Hozzáadjuk a 'show' osztályt
+}
+
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.classList.remove("show"); // Eltávolítjuk a 'show' osztályt
+}
+
+        function openImage(img) {
+    const newImg = document.createElement('img');
+    newImg.src = img.src;
+    newImg.style.maxWidth = '50%'; /* Kisebb nagyított kép szélessége */
+    newImg.style.height = 'auto';
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; /* Sötét háttér */
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.appendChild(newImg);
+    overlay.onclick = () => document.body.removeChild(overlay); // Kép bezárása
+    document.body.appendChild(overlay);
+}
+        // Pop-up megjelenítése az oldal betöltésekor
+        window.onload = openPopup;
+    </script>
+</body>
+</html>
